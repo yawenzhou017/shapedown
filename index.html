@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#78c9f4" />
     <title>Stickman Runner</title>
-    <link rel="stylesheet" href="styles.css?v=26" />
+    <link rel="stylesheet" href="styles.css?v=30" />
   </head>
   <body>
     <canvas id="game" aria-label="A stickman running on the ground beneath a blue sky"></canvas>
@@ -13,6 +13,17 @@
     <div class="shape-hud hidden" id="shapeHud" aria-label="0 shapes"><i></i><b>0</b></div>
     <div class="combo-hud hidden" id="comboHud" aria-live="polite"></div>
     <button class="pause-button hidden" id="pauseButton" type="button" aria-label="Pause game">Ⅱ</button>
+    <section class="shop-popup hidden" id="shopPopup" aria-label="Blade sharpening shop">
+      <p>SHOP UPGRADE</p>
+      <h2>BLADE<br />SHARPENING</h2>
+      <strong>+1 DAMAGE</strong>
+      <span id="damageLabel">CURRENT DAMAGE: 1</span>
+      <button id="upgradeButton" type="button">SHARPEN — 50 SHAPES</button>
+      <strong class="speed-heading">+10 SPEED</strong>
+      <span id="speedLabel">CURRENT SPEED: 430</span>
+      <button id="speedButton" type="button">TUNE SPEED — 30 SHAPES</button>
+      <button class="shop-close" id="shopClose" type="button">CLOSE</button>
+    </section>
     <main class="main-menu" id="mainMenu">
       <h1>SHAPEDOWN</h1>
       <label class="playtest-toggle">
@@ -22,6 +33,6 @@
       </label>
       <button id="playButton" type="button">PLAY</button>
     </main>
-    <script src="game.js?v=27"></script>
+    <script src="game.js?v=43"></script>
   </body>
 </html>
