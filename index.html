@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#78c9f4" />
     <title>Stickman Runner</title>
-    <link rel="stylesheet" href="styles.css?v=30" />
+    <link rel="stylesheet" href="styles.css?v=37" />
   </head>
   <body>
     <canvas id="game" aria-label="A stickman running on the ground beneath a blue sky"></canvas>
@@ -24,6 +24,38 @@
       <button id="speedButton" type="button">TUNE SPEED — 30 SHAPES</button>
       <button class="shop-close" id="shopClose" type="button">CLOSE</button>
     </section>
+    <section class="inventory-screen hidden" id="inventoryScreen" aria-label="Inventory">
+      <div class="inventory-panel">
+        <h2>INVENTORY</h2>
+        <div class="armor-slot-wrap">
+          <button class="inventory-slot armor-slot locked" id="armorSlot" type="button" aria-label="Empty armor slot">
+            <i aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="inventory-slots" aria-label="Three storage slots">
+          <button class="inventory-slot locked" type="button" data-storage-slot="0" aria-label="Empty storage slot"><i aria-hidden="true"></i></button>
+          <button class="inventory-slot locked" type="button" data-storage-slot="1" aria-label="Empty storage slot"><i aria-hidden="true"></i></button>
+          <button class="inventory-slot locked" type="button" data-storage-slot="2" aria-label="Empty storage slot"><i aria-hidden="true"></i></button>
+        </div>
+        <small>Q OR ESC TO CLOSE</small>
+      </div>
+    </section>
+    <section class="teleport-screen hidden" id="teleportScreen" aria-label="Playtesting teleport screen">
+      <div class="teleport-panel">
+        <p>PLAYTESTING</p>
+        <h2>TELEPORT</h2>
+        <div class="teleport-grid">
+          <button type="button" data-teleport="start">START</button>
+          <button type="button" data-teleport="shop">SHOP</button>
+          <button type="button" data-teleport="boulder">BOULDER HILLS</button>
+          <button type="button" data-teleport="mine">MINE ENTRANCE</button>
+          <button type="button" data-teleport="deep-mine">DEEP MINE</button>
+          <button type="button" data-teleport="town">ABANDONED TOWN</button>
+          <button type="button" data-teleport="mountain-mine">MOUNTAIN MINE</button>
+        </div>
+        <span>T OR ESC TO CLOSE</span>
+      </div>
+    </section>
     <main class="main-menu" id="mainMenu">
       <h1>SHAPEDOWN</h1>
       <label class="playtest-toggle">
@@ -33,6 +65,6 @@
       </label>
       <button id="playButton" type="button">PLAY</button>
     </main>
-    <script src="game.js?v=63"></script>
+    <script src="game.js?v=81"></script>
   </body>
 </html>

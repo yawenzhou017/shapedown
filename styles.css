@@ -10,7 +10,7 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background:
 .health-hud span.infinite { width: auto; color: #fff; font-size: 58px; text-shadow: 4px 4px 0 #147df5; }
 .health-hud.hidden { display: none; }
 .shape-hud {
-  position: fixed; top: 29px; left: 50%; z-index: 5; transform: translateX(-50%);
+  position: fixed; bottom: 26px; left: 50%; z-index: 5; transform: translateX(-50%);
   display: flex; align-items: center; gap: 13px; padding: 9px 18px;
   border: 3px solid #000; border-radius: 9px; background: rgba(255,255,255,.8);
   color: #000; font: 900 25px Arial, sans-serif; box-shadow: 4px 4px 0 #000;
@@ -98,6 +98,72 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background:
   font: 900 15px Arial, sans-serif; cursor: pointer; box-shadow: 4px 4px 0 #000;
 }
 .shop-popup .shop-close { margin-top: 13px; background: transparent; color: #000; box-shadow: none; }
+.inventory-screen {
+  position: fixed; inset: 0; z-index: 12; display: grid; place-items: center;
+  padding: 24px; background: rgba(5, 7, 8, .76); backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.inventory-screen.hidden { display: none; }
+.inventory-panel {
+  width: min(590px, calc(100vw - 32px)); padding: 34px;
+  border: 5px solid #d39a5d; border-radius: 14px; background: #20170f;
+  box-shadow: 12px 12px 0 #000; color: #fff; text-align: center;
+  font-family: Arial, sans-serif;
+}
+.inventory-panel > p { margin: 0 0 7px; color: #d39a5d; font-weight: 900; letter-spacing: .28em; }
+.inventory-panel > h2 { margin: 0 0 28px; font-size: clamp(44px, 8vw, 72px); line-height: .9; }
+.armor-slot-wrap { display: grid; justify-items: center; }
+.inventory-slots {
+  display: grid; grid-template-columns: repeat(3, 88px); place-content: center; gap: 12px;
+  margin-top: 18px;
+}
+.inventory-slot {
+  display: grid; place-items: center; width: 88px; height: 88px; padding: 8px;
+  border: 4px solid #d39a5d; border-radius: 7px; background: #3d291b;
+  cursor: default; box-shadow: 4px 4px 0 #000;
+}
+.inventory-slot.armor-slot { width: 98px; height: 98px; border-color: #e9c990; }
+.inventory-slot i {
+  display: none; position: relative; width: 42px; height: 58px;
+  background: #704526; border: 4px solid #2d1a0e; clip-path: polygon(35% 0, 66% 0, 100% 100%, 50% 82%, 0 100%);
+}
+.inventory-slot.occupied i { display: block; }
+.inventory-slot i::after {
+  content: ''; position: absolute; left: 14px; top: 1px; width: 9px; height: 9px;
+  border-radius: 50%; background: #b37a42;
+}
+.inventory-slot.equipped { border-color: #8fe388; background: #294029; }
+.inventory-slot.occupied { cursor: grab; }
+.inventory-slot.dragging { opacity: .35; }
+.inventory-slot.drag-target { border-color: #fff; background: #654329; transform: translateY(-3px); }
+.inventory-panel > small { display: block; margin-top: 25px; color: #bda993; font-weight: 900; letter-spacing: .18em; }
+.teleport-screen {
+  position: fixed; inset: 0; z-index: 12; display: grid; place-items: center;
+  padding: 24px; background: rgba(2, 8, 13, .72); backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.teleport-screen.hidden { display: none; }
+.teleport-panel {
+  width: min(720px, calc(100vw - 32px)); padding: 34px;
+  border: 5px solid #8bd7ff; border-radius: 14px; background: #07141f;
+  box-shadow: 12px 12px 0 #000; color: #fff; text-align: center;
+  font-family: Arial, sans-serif;
+}
+.teleport-panel p { margin: 0 0 7px; color: #8bd7ff; font-weight: 900; letter-spacing: .28em; }
+.teleport-panel h2 { margin: 0 0 28px; font-size: clamp(48px, 9vw, 86px); line-height: .9; }
+.teleport-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+.teleport-grid button {
+  min-height: 70px; padding: 15px; border: 3px solid #8bd7ff; border-radius: 8px;
+  background: #102c40; color: #fff; font: 900 16px Arial, sans-serif;
+  letter-spacing: .08em; cursor: pointer; box-shadow: 4px 4px 0 #000;
+}
+.teleport-grid button:hover { background: #147df5; transform: translate(2px, 2px); box-shadow: 2px 2px 0 #000; }
+.teleport-panel > span { display: block; margin-top: 25px; color: #9bb1bf; font-size: 12px; font-weight: 900; letter-spacing: .18em; }
 @media (max-width: 600px) {
   .main-menu h1 { font-size: 19vw; text-shadow: 5px 5px 0 #000; }
+  .teleport-grid { grid-template-columns: 1fr; }
+  .teleport-panel { max-height: 92vh; overflow-y: auto; padding: 24px; }
+  .inventory-panel { padding: 24px; }
+  .inventory-slots { grid-template-columns: repeat(3, min(23vw, 88px)); gap: 10px; }
+  .inventory-slot { width: min(23vw, 88px); height: min(23vw, 88px); }
 }
