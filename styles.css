@@ -9,6 +9,15 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background:
 .health-hud span.lost { color: rgba(0,0,0,.25); text-shadow: none; }
 .health-hud span.infinite { width: auto; color: #fff; font-size: 58px; text-shadow: 4px 4px 0 #147df5; }
 .health-hud.hidden { display: none; }
+.bubble-hud {
+  position: fixed; top: 86px; left: 35px; z-index: 5;
+  display: flex; align-items: center; gap: 9px; min-height: 25px;
+}
+.bubble-hud span {
+  width: 21px; height: 21px; border: 4px solid #d9f7ff; border-radius: 50%;
+  background: rgba(52, 167, 216, .42); box-shadow: 2px 2px 0 #123e58;
+}
+.bubble-hud.hidden { display: none; }
 .shape-hud {
   position: fixed; bottom: 26px; left: 50%; z-index: 5; transform: translateX(-50%);
   display: flex; align-items: center; gap: 13px; padding: 9px 18px;
@@ -91,7 +100,6 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background:
 .shop-popup p { margin: 0 0 10px; font-size: 12px; font-weight: 900; letter-spacing: .2em; }
 .shop-popup h2 { margin: 0; font-size: 49px; line-height: .85; letter-spacing: -.05em; }
 .shop-popup strong { display: block; margin: 22px 0 8px; color: #147df5; font-size: 28px; }
-.shop-popup strong.speed-heading { margin-top: 28px; color: #e05b27; }
 .shop-popup span { display: block; margin-bottom: 22px; font-size: 13px; font-weight: 800; }
 .shop-popup button {
   width: 100%; padding: 16px; border: 3px solid #000; background: #147df5; color: #fff;
@@ -131,6 +139,36 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background:
 .inventory-slot i::after {
   content: ''; position: absolute; left: 14px; top: 1px; width: 9px; height: 9px;
   border-radius: 50%; background: #b37a42;
+}
+.inventory-slot.item-armor i {
+  width: 50px; height: 54px; background: #8d989b; border-color: #30383a;
+  clip-path: polygon(18% 0, 38% 10%, 62% 10%, 82% 0, 100% 24%, 83% 39%, 78% 100%, 22% 100%, 17% 39%, 0 24%);
+}
+.inventory-slot.item-armor i::after {
+  left: 17px; top: 17px; width: 10px; height: 15px; border: 3px solid #d7e0e2;
+  border-radius: 2px; background: #596467;
+}
+.inventory-slot.item-key i {
+  width: 58px; height: 30px; border: 0; background: transparent; clip-path: none;
+}
+.inventory-slot.item-key i::before {
+  content: ''; position: absolute; left: 1px; top: 2px; width: 18px; height: 18px;
+  border: 5px solid #ffd23f; border-radius: 50%; background: #3d291b;
+  box-shadow: 0 0 0 2px #6b5410;
+}
+.inventory-slot.item-key i::after {
+  left: 23px; top: 8px; width: 34px; height: 18px; border: 0; border-radius: 0;
+  background: #ffd23f;
+  clip-path: polygon(0 0, 100% 0, 100% 42%, 84% 42%, 84% 100%, 68% 100%, 68% 42%, 51% 42%, 51% 80%, 35% 80%, 35% 42%, 0 42%);
+  filter: drop-shadow(2px 2px 0 #6b5410);
+}
+.inventory-slot.item-bow i {
+  width: 42px; height: 58px; background: transparent; border: 5px solid #b87a3e;
+  border-left: 0; border-radius: 0 50% 50% 0; clip-path: none;
+}
+.inventory-slot.item-bow i::after {
+  left: -2px; top: -2px; width: 3px; height: 54px; border: 0;
+  border-radius: 0; background: #eee6ce; transform: rotate(-7deg);
 }
 .inventory-slot.equipped { border-color: #8fe388; background: #294029; }
 .inventory-slot.occupied { cursor: grab; }

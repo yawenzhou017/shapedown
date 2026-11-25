@@ -5,23 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#78c9f4" />
     <title>Stickman Runner</title>
-    <link rel="stylesheet" href="styles.css?v=37" />
+    <link rel="stylesheet" href="styles.css?v=43" />
   </head>
   <body>
     <canvas id="game" aria-label="A stickman running on the ground beneath a blue sky"></canvas>
     <div class="health-hud hidden" id="healthHud" aria-label="3 health"></div>
+    <div class="bubble-hud hidden" id="bubbleHud" aria-label="5 air bubbles"></div>
     <div class="shape-hud hidden" id="shapeHud" aria-label="0 shapes"><i></i><b>0</b></div>
     <div class="combo-hud hidden" id="comboHud" aria-live="polite"></div>
     <button class="pause-button hidden" id="pauseButton" type="button" aria-label="Pause game">Ⅱ</button>
-    <section class="shop-popup hidden" id="shopPopup" aria-label="Blade sharpening shop">
-      <p>SHOP UPGRADE</p>
+    <section class="shop-popup hidden" id="shopPopup" aria-label="Blacksmith blade sharpening shop">
+      <p>BLACKSMITH</p>
       <h2>BLADE<br />SHARPENING</h2>
       <strong>+1 DAMAGE</strong>
       <span id="damageLabel">CURRENT DAMAGE: 1</span>
       <button id="upgradeButton" type="button">SHARPEN — 50 SHAPES</button>
-      <strong class="speed-heading">+10 SPEED</strong>
-      <span id="speedLabel">CURRENT SPEED: 430</span>
-      <button id="speedButton" type="button">TUNE SPEED — 30 SHAPES</button>
       <button class="shop-close" id="shopClose" type="button">CLOSE</button>
     </section>
     <section class="inventory-screen hidden" id="inventoryScreen" aria-label="Inventory">
@@ -45,13 +43,14 @@
         <p>PLAYTESTING</p>
         <h2>TELEPORT</h2>
         <div class="teleport-grid">
-          <button type="button" data-teleport="start">START</button>
+          <button type="button" data-teleport="start">PLAINS</button>
           <button type="button" data-teleport="shop">SHOP</button>
           <button type="button" data-teleport="boulder">BOULDER HILLS</button>
           <button type="button" data-teleport="mine">MINE ENTRANCE</button>
           <button type="button" data-teleport="deep-mine">DEEP MINE</button>
           <button type="button" data-teleport="town">ABANDONED TOWN</button>
           <button type="button" data-teleport="mountain-mine">MOUNTAIN MINE</button>
+          <button type="button" data-teleport="kingdom">QUADRILATERAL KINGDOM</button>
         </div>
         <span>T OR ESC TO CLOSE</span>
       </div>
@@ -60,11 +59,11 @@
       <h1>SHAPEDOWN</h1>
       <label class="playtest-toggle">
         <span>PLAYTESTING MODE</span>
-        <input id="playtestToggle" type="checkbox" autocomplete="off" />
+        <input id="playtestToggle" type="checkbox" autocomplete="off" checked />
         <i aria-hidden="true"></i>
       </label>
       <button id="playButton" type="button">PLAY</button>
     </main>
-    <script src="game.js?v=81"></script>
+    <script src="game.js?v=129"></script>
   </body>
 </html>
